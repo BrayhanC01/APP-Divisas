@@ -57,15 +57,6 @@ que arman la pantalla completa donde se muestran los personajes y se gestiona la
 
 <br><br>
 
-## 🔌 Módulo de Hardware Nativo (Multisensor)
-
-Pantalla que integra el hardware del dispositivo Android usando Kotlin y Jetpack Compose. Se accede desde la opción **Hardware** de la barra de navegación inferior del Home.
-
-<p align="center">
-  <img src="docs/screenshots/home.png" width="220" alt="Home con botón Hardware">
-  <img src="docs/screenshots/hardware-general.png" width="220" alt="Pantalla Multisensor">
-</p>
-
 ### Funcionalidades
 
 | Componente | Descripción | Tecnología |
@@ -95,13 +86,12 @@ Escaneo BLE de 10 segundos con listado de dispositivos ordenados por intensidad 
 Detecta si el dispositivo tiene emisor IR y envía una señal NEC a 38 kHz.
 
 #### Nivel de burbuja
-<img src="docs/screenshots/nivel-burbuja.png" width="220" alt="Nivel de burbuja">
+<img width="1871" height="971" alt="Captura de pantalla 2026-10-17 121615" src="https://github.com/user-attachments/assets/b4e00978-63e5-447b-8b10-452112db646d" />
 
 Usa el acelerómetro para mostrar la inclinación del dispositivo en tiempo real.
 
 #### Linterna SOS
-<img src="docs/screenshots/linterna-sos.png" width="220" alt="Linterna SOS">
-
+<img width="1911" height="1012" alt="Captura de pantalla 2026-10-17 121953" src="https://github.com/user-attachments/assets/7021fae2-dcaa-4587-ac45-7985e955d757" />
 Emite el patrón SOS (· · · — — — · · ·) con la linterna y la vibración sincronizadas.
 
 ### Arquitectura
