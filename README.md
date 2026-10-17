@@ -53,3 +53,90 @@ que arman la pantalla completa donde se muestran los personajes y se gestiona la
 
 - `Theme.kt`: Une los colores, tipografías y formas para aplicar un tema unificado (modo claro/oscuro) a todos los componentes visuales.
 
+
+
+<br><br>
+
+## 🔌 Módulo de Hardware Nativo (Multisensor)
+
+Pantalla que integra el hardware del dispositivo Android usando Kotlin y Jetpack Compose. Se accede desde la opción **Hardware** de la barra de navegación inferior del Home.
+
+<p align="center">
+  <img src="docs/screenshots/home.png" width="220" alt="Home con botón Hardware">
+  <img src="docs/screenshots/hardware-general.png" width="220" alt="Pantalla Multisensor">
+</p>
+
+### Funcionalidades
+
+| Componente | Descripción | Tecnología |
+|---|---|---|
+| 📷 Cámara | Vista previa en vivo y captura de fotos guardadas en almacenamiento interno | CameraX (`Preview` + `ImageCapture`) |
+| 🎙️ Micrófono | Grabación de audio de 5 segundos (AAC/MPEG-4) y reproducción | `MediaRecorder` + `MediaPlayer` |
+| 📡 Bluetooth | Escaneo de dispositivos BLE cercanos durante 10 s, mostrando nombre, MAC y señal (dBm) | `BluetoothLeScanner` |
+| 🔴 Infrarrojo | Envío de una señal IR (patrón NEC a 38 kHz) en dispositivos con emisor | `ConsumerIrManager` |
+| 🎯 Nivel de burbuja | Lectura en tiempo real de los ejes X, Y, Z con indicador visual de nivelación | `SensorManager` (acelerómetro) |
+| 🔦 Linterna SOS | Señal SOS con linterna y vibración sincronizadas | `CameraManager.setTorchMode` + `Vibrator` |
+
+### 📸 Capturas
+
+#### Cámara
+<img src="docs/screenshots/camara.png" width="220" alt="Cámara">
+
+Vista previa en vivo con CameraX y captura de foto guardada en el almacenamiento interno de la app.
+
+#### Micrófono
+<img src="docs/screenshots/microfono.png" width="220" alt="Micrófono">
+
+Graba 5 segundos de audio y permite reproducirlo desde la misma pantalla.
+
+#### Bluetooth
+<img src="docs/screenshots/bluetooth.png" width="220" alt="Bluetooth">
+
+Escaneo BLE de 10 segundos con listado de dispositivos ordenados por intensidad de señal.
+
+#### Infrarrojo
+<img src="docs/screenshots/infrarrojo.png" width="220" alt="Infrarrojo">
+
+Detecta si el dispositivo tiene emisor IR y envía una señal NEC a 38 kHz.
+
+#### Nivel de burbuja
+<img src="docs/screenshots/nivel-burbuja.png" width="220" alt="Nivel de burbuja">
+
+Usa el acelerómetro para mostrar la inclinación del dispositivo en tiempo real.
+
+#### Linterna SOS
+<img src="docs/screenshots/linterna-sos.png" width="220" alt="Linterna SOS">
+
+Emite el patrón SOS (· · · — — — · · ·) con la linterna y la vibración sincronizadas.
+
+### Arquitectura
+
+```
+app/src/main/java/com/danidev/apprickmorty/
+├── hardware/
+│   ├── Permisos.kt          # Permisos según versión de Android
+│   ├── CamaraHelper.kt      # CameraX
+│   ├── AudioHelper.kt       # MediaRecorder + MediaPlayer
+│   ├── BleHelper.kt         # Escaneo BLE
+│   ├── IrHelper.kt          # Emisor infrarrojo
+│   └── SensoresHelper.kt    # Acelerómetro, linterna y vibración
+└── ui/screens/
+    └── HardwareScreen.kt    # Pantalla Compose que coordina todo
+```
+
+### Buenas prácticas implementadas
+
+- Permisos solicitados **en tiempo de ejecución** y solo cuando se usa cada función. Si se deniegan de forma permanente, se ofrece abrir los Ajustes.
+- Permisos Bluetooth adaptados a Android 12+ (`BLUETOOTH_SCAN` / `BLUETOOTH_CONNECT`) y a versiones anteriores.
+- Hardware declarado como opcional (`uses-feature required="false"`) y verificado en código, por lo que la app no falla en dispositivos sin emisor IR, linterna o vibrador.
+- **Liberación de recursos** en `onStop()`: se detienen la grabación, la reproducción, el escaneo BLE, el sensor, la linterna y la vibración.
+- El acelerómetro solo se registra mientras la pantalla es visible, para ahorrar batería.
+
+### Permisos requeridos
+
+`CAMERA`, `RECORD_AUDIO`, `BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`, `TRANSMIT_IR`, `VIBRATE`
+
+### Requisitos y pruebas
+
+- Se recomienda probar en un **dispositivo físico**: el emulador no soporta infrarrojo y tiene soporte limitado de Bluetooth, linterna y vibración.
+- El infrarrojo solo funciona en teléfonos que incluyan emisor IR.
