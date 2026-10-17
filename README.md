@@ -1,5 +1,3 @@
-<img width="1871" height="971" alt="Captura de pantalla 2026-10-17 121615" src="https://github.com/user-attachments/assets/b4e00978-63e5-447b-8b10-452112db646d" />
-<img width="1917" height="1017" alt="Captura de pantalla 2026-10-17 121054" src="https://github.com/user-attachments/assets/d23e0e93-0d13-40f7-b2aa-3dae49725738" />
 # App rick y morty
 
 ## carpetas usadas
@@ -92,7 +90,7 @@ Graba 5 segundos de audio y permite reproducirlo desde la misma pantalla.
 Escaneo BLE de 10 segundos con listado de dispositivos ordenados por intensidad de señal.
 
 #### Infrarrojo
-<img src="docs/screenshots/infrarrojo.png" width="220" alt="Infrarrojo">
+<img width="1871" height="971" alt="Captura de pantalla 2026-10-17 121615" src="https://github.com/user-attachments/assets/b4e00978-63e5-447b-8b10-452112db646d" />
 
 Detecta si el dispositivo tiene emisor IR y envía una señal NEC a 38 kHz.
 
