@@ -81,12 +81,12 @@ Pantalla que integra el hardware del dispositivo Android usando Kotlin y Jetpack
 
 #### Cámara<img width="1901" height="1016" alt="Captura de pantalla 2026-10-17 120151" src="https://github.com/user-attachments/assets/964fbbbe-9a9b-47f1-b493-391caee2433a" />
 
-<img src="docs/screenshots/camara.png" width="220" alt="Cámara">
-
+<img width="1907" height="1013" alt="Captura de pantalla 2026-10-17 120802" src="https://github.com/user-attachments/assets/50129be6-7826-400c-81a3-6564c7813042" />
 Vista previa en vivo con CameraX y captura de foto guardada en el almacenamiento interno de la app.
 
 #### Micrófono
-<img src="docs/screenshots/microfono.png" width="220" alt="Micrófono">
+<img width="1907" height="1013" alt="Captura de pantalla 2026-10-17 120802" src="https://github.com/user-attachments/assets/76f4565f-1d9d-4807-8179-c6c16886d1b7" />
+
 
 Graba 5 segundos de audio y permite reproducirlo desde la misma pantalla.
 
