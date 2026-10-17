@@ -80,7 +80,7 @@ Pantalla que integra el hardware del dispositivo Android usando Kotlin y Jetpack
 ### 📸 Capturas
 
 #### Cámara
-<img src="docs/screenshots/camara.png" width="220" alt="Cámara">
+<img src="https://1drv.ms/i/c/adedea8c92ce482d/IQDWSLbhH-GXSITeWl08bPz-ASEIKHp8u4dpp75eeP5G2EM?e=1FpD3q" width="220" alt="Cámara">
 
 Vista previa en vivo con CameraX y captura de foto guardada en el almacenamiento interno de la app.
 
